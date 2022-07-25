@@ -1,20 +1,25 @@
 import React from 'react';
 
-import './CourseGoalItem.css';
+import styled from 'styled-components';
 
-const CourseGoalItem = props => {
-  // const [deleteText, setDeleteText] = useState('');
+const CourseGoalLi = styled.li`
+	margin: 1rem 0;
+	background: #8b005d;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+	color: white;
+	padding: 1rem 2rem;
+	cursor: pointer;
+`;
 
-  const deleteHandler = () => {
-    // setDeleteText('(Deleted!)');
-    props.onDelete(props.id);
-  };
+const CourseGoalItem = (props) => {
+	// const [deleteText, setDeleteText] = useState('');
 
-  return (
-    <li className="goal-item" onClick={deleteHandler}>
-      {props.children}
-    </li>
-  );
+	const deleteHandler = () => {
+		// setDeleteText('(Deleted!)');
+		props.onDelete(props.id);
+	};
+
+	return <CourseGoalLi onClick={deleteHandler}>{props.children}</CourseGoalLi>;
 };
 
 export default CourseGoalItem;
